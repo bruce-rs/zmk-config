@@ -50,11 +50,13 @@
 
         default_layer {
             display-name = "Dvorak";
+// ESC: sends TAB while Right Alt is held (tab_esc)
+// ENTER: tap for Enter, hold for Hyper (Ctrl+Shift+Alt+Cmd)
 // ------------------------------------------------------------------------------------------------------------
-// |  TAB  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   | BKSPC |
+// |  ESC  |  '  |  ,  |  .   |  P   |  Y   |                   |  F   |  G    |  C    |  R   |   L   | BKSPC |
 // |  CTRL |  A  |  O  |  E   |  U   |  I   |                   |  D   |  H    |  T    |  N   |   S   |   -   |
 // | SHIFT |  ;  |  Q  |  J   |  K   |  X   |                   |  B   |  M    |  W    |  V   |   Z   | SHIFT |
-//                            | GUI  | LOWER|  ENTER |  | SPACE | RAISE| ALT 
+//                            | GUI  | LOWER|  ENTER |  | SPACE | RAISE| R-ALT |
             bindings = <
 &tab_esc    &kp SQT   &kp COMMA  &kp DOT   &kp P      &kp Y                                   &kp F      &kp G             &kp C      &kp R      &kp L     &kp BSPC
 &kp LCTRL   &kp A     &kp O      &kp E     &kp U      &kp I                                   &kp D      &kp H             &kp T      &kp N      &kp S     &kp MINUS
@@ -81,8 +83,8 @@
         raise_layer {
             display-name = "Raise";
 // ------------------------------------------------------------------------------------------------------------
-// |  ESC  | F1   | F2   |  F3   |  F4   |  F5  |                |  F6  |  F7  |  F8   |  F9  |  F10  |  F12  |
-// |       | ALT  | CTRL | SHIFT |       | CAPS |                |      |   <- |   ^   |  ->  |       |  DEL  |
+// |  ESC  | F1   | F2   |  F3   |  F4   |  F5  |                |  F6  |  F7  |  F8   |  F9  |  F12  |  DEL  |
+// |       | ALT  | CTRL | SHIFT |       | CAPS |                |      |   <- |   ^   |  ->  |       |       |
 // |       | UNDO | CUT  | COPY  | PASTE |      |                | PGUP | PGDN |   v   |      |       |       |
 //                |      |       |       |      |      |  |      |      |      |       |      |
             bindings = <
@@ -94,11 +96,12 @@
         };
 
         adjust_layer {
-// -----------------------------------------------------------------------------------------------------------------------------
-// |        | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | RGB_EFF |                  |      |      |       |      |       |        |
-// |        | RGB_BRD | RGB_BRI |         |         |         |                  |      |      |       |      |       |        |
-// |        |         |         |         |         |         |                  |      |      |       |      |       | EXTPWR |
-//                    |         |         |         |         |         | |      |      |      |       |      |
+// BT0-BT4 select a Bluetooth profile, BT_CLR clears the selected one. ALT+arrows send Option+arrow.
+// --------------------------------------------------------------------------------------------------------------------------------------
+// |         | RGB_HUD | RGB_HUI | RGB_SAD | RGB_SAI | BT_CLR  |            |         |  PREV   |  PLAY   |  NEXT   |         |         |
+// | RGB_TOG | RGB_BRD | RGB_BRI |         |  MUTE   | VOL_DN  |            | VOL_UP  | ALT+<-  |  ALT+^  | ALT+->  |         |         |
+// | RGB_EFF |   BT0   |   BT1   |   BT2   |   BT3   |   BT4   |            |         |         |  ALT+v  |         |         | EXTPWR  |
+//                               |         |         |         |  |         |         |         |
             display-name = "Adjust";
             bindings = <
 &none               &rgb_ug RGB_HUD  &rgb_ug RGB_HUI  &rgb_ug RGB_SAD  &rgb_ug RGB_SAI  &bt BT_CLR                              &none        &kp C_PREV    &kp C_PP     &kp C_NEXT     &none &none
